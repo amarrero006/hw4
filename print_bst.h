@@ -3,6 +3,7 @@
 #include <map>
 #include <vector>
 #include <cstdint>
+#include "bst.h"
 
 #ifndef PRINT_BST_H
 #define PRINT_BST_H
@@ -92,7 +93,7 @@ int getSubtreeHeight(Node<Key, Value> * root, int recursionDepth = 1)
 
     */
 
-template<typename Key, typename Value>
+template<class Key, class Value>
 void BinarySearchTree<Key, Value>::printRoot (Node<Key, Value>* root) const
 {
     // special case for empty trees:

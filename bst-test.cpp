@@ -2,6 +2,7 @@
 #include <map>
 #include "bst.h"
 #include "avlbst.h"
+#include "print_bst.h"
 
 using namespace std;
 
