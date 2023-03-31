@@ -1031,7 +1031,7 @@ void BinarySearchTree<Key, Value>::nodeSwap( Node<Key,Value>* n1, Node<Key,Value
   */
 
 // include print function (in its own file because it's fairly long)
-
+#include "print_bst.h"
 
 /*
 ---------------------------------------------------
