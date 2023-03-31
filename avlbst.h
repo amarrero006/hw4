@@ -182,14 +182,14 @@ void AVLTree<Key, Value>::performBalance(AVLNode<Key, Value> *root) {
         return;
     }
     if(leftHeavy(root)){
-    
+
         if(leftRight(root)){
             rotateLeft(root->getLeft(), root->getLeft()->getRight());
             rotateRight(root, root->getLeft());
             //performBalance(root);
         }
 
-       if(leftLeft(root)){
+        if(leftLeft(root)){
             rotateRight(root, root->getLeft());
         }
     }
@@ -197,13 +197,13 @@ void AVLTree<Key, Value>::performBalance(AVLNode<Key, Value> *root) {
 
     else if(rightHeavy(root)){
 
-       if(rightLeft(root)){
+        if(rightLeft(root)){
             rotateRight(root->getRight(), root->getRight()->getLeft());
             //performBalance(root);
             rotateLeft(root, root->getRight());
-            
+
         }
-       if(rightRight(root)){
+        if(rightRight(root)){
             rotateLeft(root, root->getRight());
         }
     }
@@ -379,20 +379,12 @@ void AVLTree<Key, Value>::insert (const std::pair<const Key, Value> &new_item)
 
     AVLNode<Key, Value> *addition = new AVLNode<Key, Value>(new_item.first, new_item.second, NULL);
     BinarySearchTree<Key, Value>::recursiveInsert(this->root_, addition);
-    
+
     AVLNode<Key, Value>* temp = reinterpret_cast<AVLNode<Key, Value>*>(this->root_);
     updateTree(temp);
-    AVLNode<Key, Value>* temp2 = reinterpret_cast<AVLNode<Key, Value>*>(this->root_);
-    updateTree(temp2);
-    //std::cout <<"ROOT = " << this->root_->getKey() <<" " << std::endl; 
 
-    
-    //if(this->root_->getRight() != NULL){
-    //AVLNode<char, int>* temp2 = static_cast<AVLNode<char, int>*>(this->root_);
-    //std::cout <<"Root->right<< " << (temp2->getRight())->getKey() <<  "= RIGHT HEAVY? : " << rightHeavy(temp2->getRight())<< std::endl << "is RIGHTRIGHT?" << rightRight(temp2->getRight())<< std::endl;
-    //std::cout<<"Is RIGHTLEFT? : " << rightLeft(temp2->getRight()) << std:: endl;
-    //}
- 
+
+
 
 }
 
@@ -403,13 +395,11 @@ void AVLTree<Key, Value>::insert (const std::pair<const Key, Value> &new_item)
 template<class Key, class Value>
 void AVLTree<Key, Value>:: remove(const Key& key)
 {
-   updateTree(static_cast<AVLNode<Key, Value>*>(this->root_));
-    BinarySearchTree<Key, Value>::remove(key);
-   
-    updateTree(static_cast<AVLNode<Key, Value>*>(this->root_));
-    //updateTree(static_cast<AVLNode<Key, Value>*>(this->root_));
 
-    
+    BinarySearchTree<Key, Value>::remove(key);
+    updateTree(static_cast<AVLNode<Key, Value>*>(this->root_));
+
+
 }
 
 template<class Key, class Value>
