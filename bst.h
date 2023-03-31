@@ -225,11 +225,11 @@ public:
         bool operator!=(const iterator& rhs) const;
 
         iterator& operator++();
-
+        Node<Key, Value> * current_;
     protected:
         friend class BinarySearchTree<Key, Value>;
         iterator(Node<Key,Value>* ptr);
-        Node<Key, Value> * current_;
+       
     };
 
 public:
@@ -430,7 +430,7 @@ bool BinarySearchTree<Key, Value>::empty() const
     return root_ == NULL;
 }
 
-template<class Key, class Value>
+template<typename Key, typename Value>
 void BinarySearchTree<Key, Value>::print() const
 {
     printRoot(root_);
@@ -845,6 +845,7 @@ void BinarySearchTree<Key, Value>::clear()
     while(!empty()) {
         remove(getSmallestNode()->getKey());
     }
+    root_ = NULL;
 
 }
 
